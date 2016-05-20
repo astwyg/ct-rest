@@ -1,7 +1,6 @@
 setup.py
 ct_rest/__init__.py
 ct_rest/utils.py
-ct_rest/warpper.py
 ct_rest/wrapper.py
 ct_rest.egg-info/PKG-INFO
 ct_rest.egg-info/SOURCES.txt

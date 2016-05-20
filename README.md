@@ -1,11 +1,13 @@
 ### INSTALL
 
-pip install git+https://github.com/astwyg/ct-rest.git
+pip install ct_rest
 
 
 ### USE
 
 ```python
+from ct_rest.wrapper import REST
+
 #at view.py
 @REST(method="GET",
       header=["crm_id"])
