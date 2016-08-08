@@ -94,7 +94,7 @@ def REST(method = None, header=None, body=None):
                 if len(request.body) > 0:
                     try:
                         for bodyPair in request.body.split("&"):
-                            bodyParams[bodyPair.split("=")[0]] = urllib.unquote(bodyPair.split("=")[1])
+                            bodyParams[bodyPair.split("=")[0]] = urllib.unquote(bodyPair.split("=")[1]).replace("+"," ")
                     except Exception,e:
                         errorInfo.append(u"请按照x-www-form-urlencoded格式化body参数, 比如:key1=value1&key2=value2, 然而你的body是%s"%request.body)
                 # 验证必须body信息
