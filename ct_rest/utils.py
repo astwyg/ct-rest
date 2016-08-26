@@ -18,7 +18,7 @@ def to_dict(target, spread = None):
                 del temp[k]
             elif type(v) == datetime.datetime:
                 temp[k] = time.mktime(datetime.datetime.timetuple(v))
-        if type(spread) != None:
+        if spread:
             if type(spread) == str:
                 spread = [spread]
             for s in spread:

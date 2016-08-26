@@ -1,6 +1,6 @@
 Metadata-Version: 1.0
 Name: ct-rest
-Version: 0.1.4
+Version: 0.1.5
 Summary: a rest utils for ctcloud using Django
 Home-page: https://github.com/astwyg/ct-rest
 Author: astwyg

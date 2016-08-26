@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name = 'ct_rest',
-    version = '0.1.4',
+    version = '0.1.5',
     keywords = ('django', 'ctcloud', 'rest', 'ct_rest', 'chinatelecom'),
     description = 'a rest utils for ctcloud using Django',
     license = 'MIT License',
