@@ -1,9 +1,18 @@
 # -*- coding:utf-8 -*-
-import json, urllib
+import json, urllib, datetime
 from django.http import HttpResponse, JsonResponse
 from django.db import transaction
 from django.db import connection
 
+
+class CJsonEncoder(json.JSONEncoder):
+    def default(self, obj):
+        if isinstance(obj, datetime.datetime):
+            return obj.strftime('%Y-%m-%d %H:%M:%S')
+        elif isinstance(obj, datetime.date):
+            return obj.strftime('%Y-%m-%d')
+        else:
+            return json.JSONEncoder.default(self, obj)
 
 def REST(method = None, header=None, body=None):
     def _warpper(func):
@@ -114,6 +123,6 @@ def REST(method = None, header=None, body=None):
                     toReturn = {"statusCode":400,"viewError":str(e),"note":u"此接口由ct-rest生成原型"}
             else:
                 toReturn = {"statusCode":400,"checkError":errorInfo,"note":u"此接口由ct-rest生成原型"}
-            return HttpResponse(json.dumps(toReturn))
+            return HttpResponse(json.dumps(toReturn, cls=CJsonEncoder))
         return __warpper
     return _warpper
